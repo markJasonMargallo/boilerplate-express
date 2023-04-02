@@ -1,11 +1,14 @@
 let express = require('express');
 let app = express();
 
-app.get('/', (req, res) => {
-    absolutePath = __dirname + '/views/index.html'
-    res.sendFile(absolutePath)
-  })
+app.use('/public', express.static(__dirname+'/public'))
 
+console.log(__dirname+'/public')
+
+app.get('/', (req, res) => {
+    file = __dirname + '/views/index.html'
+    res.sendFile(file)
+  })
 
 
 
