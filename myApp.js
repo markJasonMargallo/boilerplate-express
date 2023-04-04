@@ -11,7 +11,7 @@ app.get('/json', (req, res) => {
   
   const message = "Hello json"
   const messageStyle = process.env.MESSAGE_STYLE
-  const modifiedMessage = messageStyle === 'uppercase'? message.toUpperCase() : message.toLowerCase()
+  const modifiedMessage = messageStyle === 'uppercase'? message.toUpperCase() : messageStyle === 'lowercase'? message: ''
   
   res.json({message: modifiedMessage})
   
