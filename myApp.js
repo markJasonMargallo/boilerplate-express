@@ -8,18 +8,20 @@ console.log(__dirname+'/public')
 
 app.get('/json', (req, res) => {
   
+  
   const message = "Hello json"
   const messageStyle = process.env.MESSAGE_STYLE
-  const modifiedMessage = messageStyle === 'uppercase'? message.toUpperCase() : message
+  const modifiedMessage = messageStyle === 'uppercase'? message.toUpperCase() : message.toLocaleLowerCase()
   
   res.json({message: modifiedMessage})
-
+  
   })
 
 app.get('/', (req, res) => {
     file = __dirname + '/views/index.html'
     res.sendFile(file)
   })
+
 
 
 
