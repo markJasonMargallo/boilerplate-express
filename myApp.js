@@ -7,11 +7,11 @@ app.use('/public', express.static(__dirname+'/public'))
 console.log(__dirname+'/public')
 
 app.get('/json', (req, res) => {
-  
+
   
   const message = "Hello json"
   const messageStyle = process.env.MESSAGE_STYLE
-  const modifiedMessage = messageStyle === 'uppercase'? message.toUpperCase() : message.toLocaleLowerCase()
+  const modifiedMessage = messageStyle === 'uppercase'? message.toUpperCase() : message.toLowerCase()
   
   res.json({message: modifiedMessage})
   
